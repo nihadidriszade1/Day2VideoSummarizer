@@ -1,104 +1,27 @@
-📄 DocChat — Sənədlərimlə Danış
+# ⚡ Groq-Powered YouTube Summarizer (Day 2 of 30)
 
-DocChat is a high-performance, privacy-focused PDF RAG (Retrieval-Augmented Generation) chatbot. It allows you to upload multiple PDF documents and chat with them using a combination of local vector embeddings and the powerful LLaMA 3.3 model via Groq API.
+Bu layihə, **Groq LPU** (Language Processing Unit) texnologiyasından istifadə edərək YouTube videolarının transkriptini çıxaran və saniyələr içində detallı xülasə hazırlayan süni intellekt alətidir.
 
-Streamlit · Python · Groq · FAISS · LangChain
+## 🚀 Xüsusiyyətlər
+- **Çoxpilləli Transkript Sistemi:** 1. `YouTubeTranscriptApi` (Rəsmi/Avtomatik alt yazılar)
+  2. `yt-dlp` Fallback (Daxili sub-title çəkmə sistemi)
+  3. Metadata Fallback (Transkript tapılmadıqda başlıq və təsvir analizi)
+- **Dil Tanıma (Custom Detection):** Azərbaycan, Türk və İngilis dillərini avtomatik tanıyır və xülasəni həmin dildə təqdim edir.
+- **Sürət:** Groq-un `llama-3.3-70b-versatile` modeli ilə şimşək sürətində analiz.
+- **Map-Reduce Məntiqi:** Uzun videoları hissələrə bölərək (chunking) heç bir məlumat itkisi olmadan xülasə edir.
 
-✨ Features
+## 🛠 Texnoloji Stack
+- **Frontend:** Streamlit
+- **LLM:** Groq (Llama 3.3 70B)
+- **Framework:** LangChain
+- **Data Extraction:** yt-dlp, YouTubeTranscriptApi
 
-🔐 Privacy First
-All embeddings are generated locally using all-MiniLM-L6-v2, ensuring your documents never leave your system.
+## 📦 Quraşdırılma
 
-⚡ Fast AI Responses
-Powered by LLaMA 3.3 70B via Groq Cloud API for near-instant answers.
-
-📚 Multi-PDF Chat
-Upload multiple PDF files and chat with all of them at once.
-
-🧠 RAG Architecture
-Combines retrieval + generation for accurate and context-aware responses.
-
-🌍 Multilingual Support
-Optimized for Azerbaijani and English queries.
-
-🎨 Modern UI
-Clean dark-themed Streamlit interface with smooth chat experience.
-
-🚀 Getting Started
-
-Prerequisites
-- Python 3.9+
-- Groq API Key (https://console.groq.com)
-
-Installation
-
-1. Clone repository:
-git clone https://github.com/YOUR_USERNAME/docchat.git
-cd docchat
-
-2. Create virtual environment:
-python -m venv .venv
-
-Windows:
-.venv\Scripts\activate
-
-macOS/Linux:
-source .venv/bin/activate
-
-3. Install dependencies:
-pip install -r requirements.txt
-
-4. Run app:
-streamlit run app.py
-
-🛠️ How It Works
-
-1. PDF Text Extraction
-Uses PyPDF2 to extract text from uploaded PDFs.
-
-2. Chunking
-Splits text into small chunks using RecursiveCharacterTextSplitter.
-
-3. Embeddings
-Creates local embeddings using all-MiniLM-L6-v2 model.
-
-4. Vector Database
-Stores embeddings in FAISS index.
-
-5. Retrieval
-Finds most relevant chunks using similarity search.
-
-6. RAG Pipeline
-Sends retrieved context + user question to Groq LLaMA 3.3 model.
-
-🎨 UI Features
-
-- Dark modern theme
-- Chat-style interface
-- Glassmorphism design
-- Smooth Streamlit UX
-
-🔐 Security
-
-- API keys stored only in session state
-- No permanent storage of sensitive data
-- Fully local embedding generation
-
-📦 Use Cases
-
-- Study assistant
-- Research paper analyzer
-- Legal document Q&A
-- Personal knowledge chatbot
-
-📄 License
-
-This project is licensed under the MIT License.
-
-💡 Future Improvements
-
-- Multi-user support
-- Chat history saving
-- DOCX/TXT support
-- Hybrid search (BM25 + FAISS)
-- Streaming responses
+1. Reponu klonlayın:
+   ```bash
+   git clone https://github.com/nihadidriszade1/Day2VideoSummarizer.git
+2. Lazımi kitabxanaları yükləyin:
+   pip install streamlit youtube-transcript-api langchain-groq yt-dlp requests
+3. Tətbiqi başladın:
+   streamlit run app.py
