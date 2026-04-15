@@ -22,6 +22,8 @@ Bu layihə, **Groq LPU** (Language Processing Unit) texnologiyasından istifadə
    ```bash
    git clone https://github.com/nihadidriszade1/Day2VideoSummarizer.git
 2. Lazımi kitabxanaları yükləyin:
+   ```bash
    pip install streamlit youtube-transcript-api langchain-groq yt-dlp requests
 3. Tətbiqi başladın:
+   ```bash
    streamlit run app.py
